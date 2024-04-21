@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pure Blur</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+  <link rel='stylesheet'
+    href='https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <img class="logo" src="/static/img/FYP_LOGO.png">
+    <a class="logoName">PURE BLUR</a>
+    <nav>
+      <ul class="nav_links">
+        <li></i><a href="upload_v.html" style="color:steelblue;">Video</a></li>
+        <li><a href="upload_p.html">Photo</a></li>
+        <li><a href="upload_a.html">Audio</a></li>
+        <li><a href="blood.html">Blood</a></li>
+        <li><a href="report.html">Report</a></li>
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+  <form id="form" enctype="multipart/form-data">
+    <div class="container">
+      <div class="container p1">
+        <div class="header-section">
+          <h1>Blur Video</h1>
+          <p>Upload Video you want to blur.</p>
+          <p>Only Video file is allowed.</p>
+        </div>
+        <div class="drop-section ">
+          <div class="col">
+            <div class="cloud-icon">
+              <img src="/static/img/icons/upload.png" alt="cloud">
+            </div>
+            <span>Drag & Drop your files here</span>
+            <span>OR</span>
+            <button class="file-selector" type="button">Browse Files</button>
+            <input type="file" class="file-selector-input" id="videoFile" name="video" accept="video/*" required>
+          </div>
+          <div class="col">
+            <div class="drop-here">Drop Here</div>
+          </div>
+        </div>
+        <div class="list-section">
+          <div class="list-title">Uploaded Files</div>
+          <div class="list"></div>
+        </div>
+        <button type="button" class="next">Next</button>
+        <div class="steps">
+          <span class="indicator1"></span>
+          <span class="indicator"></span>
+          <span class="indicator"></span>
+          <span class="indicator"></span>
+
+        </div>
+
+      </div>
+      <div class="container p2">
+        <h2>Setting</h2>
+        <fieldset>
+          <table>
+            <tr>
+              <td><label for="class1">Covered Female Genitalia</label></td>
+              <td><input type="checkbox" id="class1" name="classes[]" value="FEMALE_GENITALIA_COVERED"></td>
+            </tr>
+            <tr>
+              <td><label for="class4">Exposed Female Breast</label></td>
+              <td><input type="checkbox" id="class4" name="classes[]" value="FEMALE_BREAST_EXPOSED"></td>
+            </tr>
+            <tr>
+              <td><label for="class5">Exposed Female Genitalia</label></td>
+              <td><input type="checkbox" id="class5" name="classes[]" value="FEMALE_GENITALIA_EXPOSED"></td>
+            </tr>
+            <tr>
+              <td><label for="class17">Covered Female Breast</label></td>
+              <td><input type="checkbox" id="class17" name="classes[]" value="FEMALE_BREAST_COVERED"></td>
+            </tr>
+            <tr>
+              <td><label for="class2">Female Face</label></td>
+              <td><input type="checkbox" id="class2" name="classes[]" value="FACE_FEMALE"></td>
+            </tr>
+          </table>
+
+        </fieldset>
+        <fieldset>
+          <legend>Male</legend>
+          <table>
+            <tr>
+              <td><label for="class6">Exposed Male Breast</label></td>
+              <td><input type="checkbox" id="class6" name="classes[]" value="MALE_BREAST_EXPOSED"></td>
+            </tr>
+            <tr>
+              <td><label for="class13">Male Face</label></td>
+              <td><input type="checkbox" id="class13" name="classes[]" value="FACE_MALE"></td>
+            </tr>
+            <tr>
+              <td><label for="class15">Exposed Male Genitalia</label></td>
+              <td><input type="checkbox" id="class15" name="classes[]" value="MALE_GENITALIA_EXPOSED"></td>
+            </tr>
+          </table>
+        </fieldset>
+        <fieldset>
+          <legend>General</legend>
+          <table>
+            <tr>
+              <td><label for="class7">Exposed Anus</label></td>
+              <td><input type="checkbox" id="class7" name="classes[]" value="ANUS_EXPOSED"></td>
+            </tr>
+            <tr>
+              <td><label for="class8">Exposed Feet</label></td>
+              <td><input type="checkbox" id="class8" name="classes[]" value="FEET_EXPOSED"></td>
+            </tr>
+            <tr>
+              <td><label for="class9">Covered Belly</label></td>
+              <td><input type="checkbox" id="class9" name="classes[]" value="BELLY_COVERED"></td>
+            </tr>
+            <tr>
+              <td><label for="class10">Covered Feet</label></td>
+              <td><input type="checkbox" id="class10" name="classes[]" value="FEET_COVERED"></td>
+            </tr>
+            <tr>
+              <td><label for="class11">Covered Armpits</label></td>
+              <td><input type="checkbox" id="class11" name="classes[]" value="ARMPITS_COVERED"></td>
+            </tr>
+            <tr>
+              <td><label for="class12">Exposed Armpits</label></td>
+              <td><input type="checkbox" id="class12" name="classes[]" value="ARMPITS_EXPOSED"></td>
+            </tr>
+            <tr>
+              <td><label for="class14">Exposed Belly</label></td>
+              <td><input type="checkbox" id="class14" name="classes[]" value="BELLY_EXPOSED"></td>
+            </tr>
+            <tr>
+              <td><label for="class16">Covered Anus</label></td>
+              <td><input type="checkbox" id="class16" name="classes[]" value="ANUS_COVERED"></td>
+            </tr>
+            <tr>
+              <td><label for="class18">Covered Buttocks</label></td>
+              <td><input type="checkbox" id="class18" name="classes[]" value="BUTTOCKS_COVERED"></td>
+            </tr>
+          </table>
+
+        </fieldset><br>
+        <h2>Blur Effect</h2><a href="blur_effect.html" style="color: blue;">Learn More</a><br><br>
+
+        <div class="rbuttons">
+          <input type="radio" id="normal" name="effect" value="normal" checked><label for="normal">Normal</label>
+
+
+          <input type="radio" id="blur" name="effect" value="blur">
+          <label for="blur">Blur</label>
+
+          <input type="radio" id="mosaic" name="effect" value="mosaic">
+          <label for="mosaic">Mosaic</label>
+
+          <input type="radio" id="cover" name="effect" value="cover">
+          <label for="cover">Cover</label>
+        </div>
+        <button type="submit">Censor Video</button>
+        <div class="steps">
+          <span class="indicator1"></span>
+          <span class="indicator1"></span>
+          <span class="indicator"></span>
+          <span class="indicator"></span>
+
+        </div>
+      </div>
+
+      <div class="container p3" id="p3">
+        <div id="time">
+        </div>
+        <img src="/static/img/icons/loading.gif" loop="infinite" style="height: 200px; width: 200px;" />
+        <div class="steps">
+          <span class="indicator1"></span>
+          <span class="indicator1"></span>
+          <span class="indicator1"></span>
+          <span class="indicator"></span>
+        </div>
+      </div>
+
+      <div class="container p4">
+        <div class="back">
+          <a href="upload_v.html"><b>&lt; Back</b></a>
+        </div>
+        <br><br>
+        COMPLETE!<br><br>
+        <video id="video" controls style="height: 200px; ">
+          <source src="" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <button type="button">
+          <a id="down" href="" download>Download Video</a></button><br>
+        <div class="steps">
+          <span class="indicator1"></span>
+          <span class="indicator1"></span>
+          <span class="indicator1"></span>
+          <span class="indicator1"></span>
+        </div>
+
+      </div>
+    </div>
+  </form>
+  <script src="/static/js/script.js"></script>
+  <script src="/static/js/v.js"></script>
+</body>
+
+</html>

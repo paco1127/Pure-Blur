@@ -1,0 +1,6 @@
+filename,bluredFilename,UserID,filetype,blurtype
+9a5c7a4c-99de-4bd2-a1f5-6baf05033f75.jpg,censor_9a5c7a4c-99de-4bd2-a1f5-6baf05033f75.jpg,admin,photo,sexy
+39f2db93-4cbd-42cc-b1d6-7ae10f7b7291.jpg,censor_39f2db93-4cbd-42cc-b1d6-7ae10f7b7291.jpg,user2,photo,sexy
+3f23aa4d-1f75-4223-a807-cee5a0aa99eb.mp3,muted_3f23aa4d-1f75-4223-a807-cee5a0aa99eb.mp3,user2,audio,foul
+e8286182-aa8c-4fa3-9e6c-c609a96903bc.jpg,blurred_e8286182-aa8c-4fa3-9e6c-c609a96903bc.jpg,user2,photo,blood
+d275512e-621d-475d-9f4b-6715f0983491.mp4,d275512e-621d-475d-9f4b-6715f0983491.mp4_censored.mp4,user2,video,sexy

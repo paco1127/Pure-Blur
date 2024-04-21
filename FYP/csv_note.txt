@@ -1,0 +1,12 @@
+User table
+userID PK
+username
+tier
+password
+
+UserFile table
+Filename PK(unique) (uploads\original)
+bluredFilename (uploads\censored)
+UserID
+filetype(audio/photo/video)
+blurtype(foul,blood,sexy)

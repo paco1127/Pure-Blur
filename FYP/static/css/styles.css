@@ -1,0 +1,505 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
+@import url('https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/2.1.0/uicons-solid-straight/css/uicons-solid-straight.css');
+@import url('https://cdn-uicons.flaticon.com/2.1.0/uicons-bold-straight/css/uicons-bold-straight.css');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Exo 2', sans-serif;
+}
+
+li, a, button{
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10px;
+}
+
+.logo {
+
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    margin-left: 10px;
+    
+}
+.logoName{
+    margin-left:20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    justify-content:flex-start; 
+}
+
+.nav_links {
+    list-style: none;
+}
+
+.nav_links li{
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav_links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+    color:#276678;
+}
+
+button {
+    padding: 9px 25px;
+    background-color: #D3E0EA;
+    border: none;
+    border-radius: 50px;
+    cursor:pointer ;
+    transition:all 0.3s ease 0s;
+}
+
+button:hover{
+    background-color: rgba(0, 136, 169, 0.8);
+    color: #F6F5F5;
+}
+form{
+    margin-top: 50px;
+}
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 650px;
+    min-height: 600px;
+    margin: auto;
+    background-color: white;
+    border-radius: 16px;
+}
+.container.p1 ,.container.p2 ,.container.p3,.container.p4{ 
+    border:2px solid #fafafa;
+    padding:2rem 3rem;
+}
+.steps {
+    margin-top: 50px ;
+    width: 100%;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.indicator{
+    display: block;
+    float:left;
+    width: 150px;
+    height: 1px ;
+    border:2px solid #ffffff;
+    border-radius: 10px;
+    padding:3px;
+    background-color: #808080;
+}
+
+
+.indicator1{
+    display: block;
+    float:left;
+    width: 150px;
+    height: 1px ;
+    border:2px solid #ffffff;
+    border-radius: 10px;
+    padding:3px;
+    background-color: #6fc5c6;
+}
+
+.header-section{
+    padding: 25px 0px;
+}
+
+.header-section h1{
+    font-weight: 500;
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    color: #707EA0;
+    margin: 0px;
+    margin-bottom: 8px;
+}
+.header-section p{
+    margin: 5px;
+    font-size: 0.95rem;
+    color: #707EA0;
+}
+.drop-section{
+    min-height: 250px;
+    border: 2px dashed #adadad;
+    background-color: #fafafa;
+    margin: 5px 35px 35px 35px;
+    border-radius: 12px;
+    position: relative;
+}
+.drop-section div.col:first-child{
+    opacity: 1;
+    visibility: visible;
+    transition-duration: 0.2s ;
+    transform: scale(1);
+}
+.drop-section div.col:last-child{
+    font-size:40px;
+    font-weight: 700;
+    color:#c0cae1;
+    position:absolute;
+    top: 0px;
+    bottom:0px;
+    left:0px;
+    right: 0px;
+    margin:auto;
+    width:200px;
+    height:55px;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.6);
+    transition-duration: 0.2ms;
+}
+.drag-over-effect div.col:first-child{
+    opacity:0;
+    visibility: hidden;
+    pointer-events:none;
+    transform: scale(1.1);
+}
+.drag-over-effect div.col:last-child{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+.drop-section .cloud-icon{
+    margin-top:25px;
+    margin-bottom: 20px;
+}
+.drop-section .cloud-icon img{
+   width: 300px; 
+}
+.drop-section span, .drop-section button{
+    display: block;
+    margin: auto;
+    color:#707EA0;
+    margin-bottom: 10px;
+}
+.drop-section button{
+    color :white;
+    background-color: #5874C6;
+    border: none;
+    outline: none;
+    padding: 7px 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.drop-section input{
+    display: none;
+}
+.list-section{
+    display: none;
+    text-align:left;
+    margin:0px 35px;
+    padding-bottom: 20px;
+}
+.list-section .list-title{
+    font-size: 0.95rem;
+    color:#707EA0;
+}
+.list-section li{
+    display: flex;
+    margin:15px 0px;
+    padding-top:4px;
+    padding-bottom:2px;
+    border-radius: 8px;
+    transition-duration: 0.2s;
+}
+.list-section li:hover{
+    box-shadow: #E3EAF9 0px 0px 4px 0px,#E3EAF9 0px 12px 18px 0px;;
+}
+.list-section li .col{
+    flex:.1;
+}
+.list-section li .col:nth-child(1){
+    flex:.15;
+    text-align: center;
+}
+.list-section li .col:nth-child(2){
+    flex: .75;
+    text-align:left;
+    font-size: 0.9rem;
+    color:#3e4046;
+    padding: 8px 10px;
+}
+.list-section li .col:nth-child(2) div.name{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width:250px;
+    display: inline-block;
+}
+.list-section li .col .filename span{
+    color:#707EA0;
+    float: right;
+}
+.list-section li .file-progress {
+    width: 100%;
+    height: 5px;
+    margin-top: 8px;
+    border-radius: 8px;
+    background-color: #dee6fd;
+}
+.list-section li .file-progress span {
+    display:  block;
+    width:50%;
+    height: 100%;
+    border-radius: 8px;
+    background-image: linear-gradient(120deg, #6b99fd, #9385ff);
+    transition-duration:0.4s;
+}
+.list-section li .col .filesize{
+    font-size: 0.75rem;
+    margin-top: 3px;
+    color:#707EA0;
+}
+.list-section li .col svg.cross,
+.list-section li .col svg.tick{
+    fill:#8694d2;
+    position:relative;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+}
+.list-section li .col svg.tick{
+    fill:#50a156;
+    background-color: transparent;
+}
+.list-section li.complete span,
+.list-section li.complete .file-progress,
+.list-section li.complete svg.cross{
+    display: none;
+}
+
+.list-section li.in-prog .file-size,
+.list-section li.in-prog svg.tick{
+    display: none;
+}
+
+fieldset{
+    display:block;
+    padding:10px;
+
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
+  input[type="checkbox"] {
+    display: block;
+  
+  }
+  
+  input[type="checkbox"] {
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 0.75em;
+    box-shadow: 0.125em 0.125em 0 0.125em rgba(0,0,0,0.3) inset;
+    color: #d7d7d7;
+    display: inline-flex;
+    align-items: center;
+    margin: auto;
+    padding: 0.15em;
+    width: 3em;
+    height: 1.5em;
+    transition: background-color 0.1s 0.3s ease-out, box-shadow 0.1s 0.3s ease-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  
+  input[type="checkbox"]:before, .l:after {
+    content: "";
+    display: block;
+  }
+  
+  input[type="checkbox"]:before {
+    background-color: #d7d7d7;
+    border-radius: 50%;
+    width: 1.2em;
+    height: 1.2em;
+    transition: background-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
+    z-index: 1;
+  }
+  
+  input[type="checkbox"]:after {
+    background: linear-gradient(transparent 50%, rgba(0,0,0,0.15) 0) 0 50% / 50% 100%,
+      repeating-linear-gradient(90deg,#bbb 0,#bbb,#bbb 20%,#999 20%,#999 40%) 0 50% / 50% 100%,
+      radial-gradient(circle at 50% 50%,#888 25%, transparent 26%);
+    background-repeat: no-repeat;
+    border: 0.25em solid transparent;
+    border-left: 0.4em solid #d8d8d8;
+    border-right: 0 solid transparent;
+    transition: border-left-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
+    transform: translateX(-22.5%);
+    transform-origin: 25% 50%;
+    width: 1.2em;
+    height: 1em;
+    box-sizing: border-box;
+  }
+  
+  input[type="checkbox"]:checked {
+    background-color: #0096FF;
+    box-shadow: 0.125em 0.125em 0 0.125em rgba(0,0,0,0.1) inset;
+  }
+  
+  input[type="checkbox"]:checked:before {
+    background-color: currentColor;
+    transform: translateX(125%)
+  }
+  
+  input[type="checkbox"]:checked:after {
+    border-left-color: currentColor;
+    transform: translateX(-2.5%) rotateY(180deg);
+  }
+
+  .main_container{
+    text-align: center;
+  }
+
+  .main_container[title="1"]{
+    margin-bottom: 50px;
+  }
+
+  .main_container[title="2"]{
+
+    background-color: #dddddd;
+    min-height: 450px;
+  }
+
+  .main_container[title="3"]{
+
+    background-color: #eeeeee;
+    min-height: 450px;
+  }
+
+  .main_container[title="4"]{
+
+    background-color: white;
+    min-height: 500px;
+  }
+
+  .main_container h2{
+    text-align: left;
+    font-weight: bold;
+    color: black;
+    font-size: 30px;
+
+  }
+
+.columns{
+    display:inline-flex;
+    margin-top: 50px;
+}
+.columns .content{
+    max-width: 600px;
+    margin-left: 100px;
+
+}
+.columns .content p{
+    font-size: 20px;
+    text-align: left;
+
+}
+
+.columns .content ul{
+
+    margin-left:30px;
+    text-align: left;
+
+}
+
+.columns .colimg img{
+    min-width: 500px;
+    max-width: 900px;
+    min-height: 150px;
+    max-height: 350px;
+    margin-left: 70px;
+    margin-top: 10px;
+    
+}
+
+
+.main_container[title="4"] h2{
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+    
+  }
+
+  .main_container[title="4"] iframe{
+    max-width: 700px;
+    max-height: 500px;
+    
+  }
+
+  .columns .content button{
+    margin-top:30px;
+  }
+
+  tr td:first-child {
+    text-align: left;
+    min-width: 300px;
+}
+
+tr td:nth-child(2) {
+    text-align: right;
+}
+
+
+.rbuttons{
+    margin-bottom: 30px;
+}
+
+.rbuttons input[type="radio"]{
+ margin-left: 10%;
+
+}
+
+.back a{
+    float: left;
+}
+
+
+label[for="username"], label[for="password"], label[for="confirm_password"]{
+    display: block;
+    width:200px;
+    text-align: left;
+    margin-bottom: -20px;
+}
+
+#registrationForm input[type="text"], input[type="password"]{
+    width: 300px;
+    margin-bottom: 20px;
+    border-color:gray;
+    border-radius: 3px;
+}
+
+#loginForm input[type="text"], input[type="password"]{
+    width: 300px;
+    margin-bottom: 20px;
+    border-color:gray;
+    border-radius: 3px;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure Blur</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <img class="logo" src="/static/img/FYP_LOGO.png">
+        <a class="logoName">PURE BLUR</a>
+        <nav>
+            <ul class="nav_links">
+                <li></i><a href="upload_v.html"> Video </a></li>
+                <li><a href="upload_p.html">Photo</a></li>
+                <li><a href="upload_a.html">Audio</a></li>
+                <li><a href="blood.html" style="color:steelblue;">Blood</a></li>
+                <li><a href="report.html">Report</a></li>
+                <li><a href="homepage.html" >Home</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <form id="form" enctype="multipart/form-data">
+        <div class="container">
+            <div class="container p1">
+                <div class="header-section">
+                    <h1>Blur Photo</h1>
+                    <p>Upload Photo you want to blur.</p>
+                    <p>Only Photo file is allowed.</p>
+                </div>
+                <div class="drop-section ">
+                    <div class="col">
+                        <div class="cloud-icon">
+                            <img src="/static/img/icons/upload.png" alt="cloud">
+                        </div>
+                        <span>Drag & Drop your files here</span>
+                        <span>OR</span>
+                        <button class="file-selector" type="button">Browse Files</button>
+                        <input type="file" class="file-selector-input" name="image" accept="image/*" required>
+                    </div>
+                    <div class="col">
+                        <div class="drop-here">Drop Here</div>
+                    </div>
+                </div>
+                <div class="list-section">
+                    <div class="list-title">Uploaded Files</div>
+                    <div class="list"></div>
+                </div>
+                <button type="submit">Censor Image</button>
+                <div class="steps">
+                    <span class="indicator1 first"></span>
+                    <span class="indicator"></span>
+
+                    
+                </div>
+            </div>
+
+            <div class="container p2">
+                <div class="back">
+                    <a href="blood.html"><b>&lt; Back</b></a>
+                  </div>
+                  <br><br>
+                <h2>Result Image:</h2><br><br>
+                <div class="center">
+                    
+                <img id="censored-image" alt="Censored Image"><br>
+                </div><br>
+                <button type="button"><a id="down" href="" download>Download Image</a></button>
+                <div class="steps">
+                    <span class="indicator1"></span>
+                    <span class="indicator1"></span>
+                </div>
+                
+            </div>
+        </div>
+
+    </form>
+    <script src="/static/js/script.js"></script>
+    <script src="/static/js/ib.js"></script>
+</body>
+
+</html>

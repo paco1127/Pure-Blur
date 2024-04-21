@@ -1,0 +1,1 @@
+pipreqs --savepath=requirements.in --encoding=utf8 && pip-compile

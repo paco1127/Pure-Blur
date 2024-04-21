@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pureblur</title>
+    <link rel="stylesheet" href="./static/css/styles.css">
+
+</head>
+<script>
+
+</script>
+
+<body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <script>
+        var messages = "{{ messages | join(' ')}}";
+
+          alert(messages);
+      </script>
+    {% endif %}
+  {% endwith %}
+    <header>
+        <img class="logo" src="/static/img/FYP_LOGO.png">
+        <a class="logoName">PURE BLUR</a>
+        <nav>
+            <ul class="nav_links">
+                <li></i><a href="upload_v.html">Video</a></li>
+                <li><a href="upload_p.html">Photo</a></li>
+                <li><a href="upload_a.html">Audio</a></li>
+                <li><a href="blood.html">Blood</a></li>
+                <li><a href="homepage.html" style="color:steelblue;">Home</a></li>
+                <li><a href="login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="main_container" title="1">
+
+        <div class="columns">
+            <div class="content">
+                <h2>What is PURE BLUR?</h2><br><br><br>
+                <p><b>PURE BLUR</b> is effective tool to blur the inappropriate contents such as <b>Sexual content</b>,
+                    <b>Bloody content</b> and <b>Private information</b>. <b>PURE BLUR</b> aims to prevent minors from
+                    exposing inappropriate information and prevent the Streamer or YouTuber work from offending the
+                    platform's rules.</p>
+            </div>
+            <div class="colimg">
+                <img src="/static/img/column1.png" alt="business image">
+            </div>
+        </div>
+    </div>
+
+    <div class="main_container" title="2">
+
+        <div class="columns">
+            <div class="content">
+                <h2>The Blur Function of PURE BLUR</h2><br><br><br>
+                <p>You can blur <b>Video</b>,<b>Photo</b> and <b>Audio</b> in PURE BLUR. The blur function is update
+                    continously. Below is the inappropriate content what the user can choose to blur:</p>
+                <ul>
+                    <li><b>Foul language(Audio)</b></li>
+                    <li><b>Sexual content(Video, Photo)</b></li>
+                    <li><b>Bloody content(Photo)</b></li>
+                    <li><b>New function is coming soon...</b></li>
+
+                </ul>
+            </div>
+            <div class="colimg">
+                <img src="/static/img/column2.png" alt="business image">
+            </div>
+        </div>
+    </div>
+
+    <div class="main_container" title="3">
+
+        <div class="columns">
+            <div class="content">
+                <h2>The blur effect of PURE BLUR</h2><br><br><br>
+                <p>In <b>PURE BLUR</b>, it has 4 different type of blur effects. The user can select the most suitable
+                    effect to blur their videos and images. Below is the blur effect which the user can choose:</p>
+
+                <ul>
+                    <li><b>Normal</b></li>
+                    <li><b>Blur</b></li>
+                    <li><b>Mosaic</b></li>
+                    <li><b>Cover</b></li>
+
+                </ul>
+
+                <br>
+                <a href="blur_effect_nonuser.html" style="color: blue;"><button style="margin-top:30px; ">→ Learn
+                        More!</button></a>
+
+
+            </div>
+            <div class="colimg">
+                <img src="/static/img/sample_origial.jpg" alt="business image">
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="main_container" title="4">
+        <h2>Review:</h2><br><br>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/w-lueXyo7WE?si=l4eeNClphEgq2xCn&amp;rel=0"
+            title="Pureblur" frameborder="5" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+</body>
+
+</html>

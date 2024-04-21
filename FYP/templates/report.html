@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pureblur</title>
+    <link rel="stylesheet" href="./static/css/styles.css">
+    <script>
+        function filterFiles(fileType) {
+            // Get all table rows
+            var rows = document.querySelectorAll("table tbody tr");
+            rows.forEach(row => {
+                // Data attribute on the row stores the file type
+                if (fileType === 'all' || row.getAttribute('data-type') === fileType) {
+                    row.style.display = ''; // Show row
+                } else {
+                    row.style.display = 'none'; // Hide row
+                }
+            });
+        }
+    </script>
+    <style>
+        img,
+        video,
+        audio {
+            width: 200px;
+            height: auto;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <img class="logo" src="/static/img/FYP_LOGO.png">
+        <a class="logoName">PURE BLUR</a>
+        <nav>
+            <ul class="nav_links">
+                <li></i><a href="upload_v.html">Video</a></li>
+                <li><a href="upload_p.html">Photo</a></li>
+                <li><a href="upload_a.html">Audio</a></li>
+                <li><a href="blood.html">Blood</a></li>
+                <li><a href="report.html" style="color:steelblue;">Report</a></li>
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="main_container" title="1">
+        {% if success == True %}
+        <p>Report submitted successfully.</p>
+        {% else %}
+
+        Select what file you want to report from a list of files you have uploaded.
+        <br>
+        <br>
+
+        {% if files|length != 0 %}
+        <label for="fileType">Choose a file type:</label>
+        <select id="fileType" onchange="filterFiles(this.value)">
+            <option value="all">All</option>
+            <option value="photo">Photo</option>
+            <option value="video">Video</option>
+            <option value="audio">Audio</option>
+        </select>
+        <br><br>
+        <form action="{{ url_for('report') }}" method="post">
+
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Select</th>
+                        <th>Original Media</th>
+                        <th>Censored Media</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for file in files %}
+                    <tr data-type={{file['filetype']}}>
+                        <td>
+                            <input type="radio" name="filedata"
+                                value="{{ [file['filename'],file['bluredFilename'],file['blurtype'],file['filetype']] }}" required>
+                        </td>
+                        <td>
+                            {% if file['filetype'] == 'photo' %}
+                            <img src="{{ url_for('custom_static', filename='original/' + file['filename']) }}"
+                                alt="Original Photo">
+                            {% elif file['filetype'] == 'video' %}
+                            <video controls>
+                                <source src="{{ url_for('custom_static', filename='original/' + file['filename']) }}"
+                                    type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            {% elif file['filetype'] == 'audio' %}
+                            <audio controls>
+                                <source src="{{ url_for('custom_static', filename='original/' + file['filename']) }}"
+                                    type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            {%else%}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if file['filetype'] == 'photo' %}
+                            <img src="{{ url_for('custom_static', filename='censored/' + file['bluredFilename']) }}"
+                                alt="Censored Photo">
+                            {% elif file['filetype'] == 'video' %}
+                            <video controls>
+                                <source
+                                    src="{{ url_for('custom_static', filename='censored/' + file['bluredFilename']) }}"
+                                    type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            {% elif file['filetype'] == 'audio' %}
+                            <audio controls>
+                                <source
+                                    src="{{ url_for('custom_static', filename='censored/' + file['bluredFilename']) }}"
+                                    type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <br>
+            <label for="reason">Reason:</label>
+            <textarea id="reason" name="reason" required></textarea>
+
+            <input type="submit" value="submit">
+        </form>
+        {% else %}
+        <p>No files uploaded yet.</p>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    {% if Isadmin %}
+    <div class="main_container" title="2">
+        <h2>Reported Files</h2>
+        {% if reports|length != 0 %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>File</th>
+                    <th>Reason</th>
+                    <th>Blur type</th>
+                    <th>Reported By</th>
+                    <th>Reported On</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for report in reports %}
+                <tr>
+                    <td>
+                        {% if report['filetype'] == 'photo' %}
+                        <img src="{{ url_for('custom_static', filename='censored/' + report['blurfilename']) }}"
+                            alt="Censored Photo">
+                        {% elif report['filetype'] == 'video' %}
+                        <video controls>
+                            <source src="{{ url_for('custom_static', filename='censored/' + report['blurfilename']) }}"
+                                type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        {% elif report['filetype'] == 'audio' %}
+                        <audio controls>
+                            <source src="{{ url_for('custom_static', filename='censored/' + report['blurfilename']) }}"
+                                type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        {%else%}
+                        {% endif %}
+                    </td>
+                    <td>{{ report['reason'] }}</td>
+                    <td>{{ report['blurtype'] }}</td>
+                    <td>{{ report['username'] }}</td>
+                    <td>{{ report['reported_on'] }}</td>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No reports yet.</p>
+        {% endif %}
+        {% endif %}
+</body>
+
+</html>
