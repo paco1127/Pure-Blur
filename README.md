@@ -56,4 +56,4 @@
 The extension will now be available in your browser.
 
 
-For a Traditional Chinese version of this guide, please [click here](#README(ch).md).
+For a Traditional Chinese version of this guide, please [click here](/README(ch).md).
