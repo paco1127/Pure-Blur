@@ -26,9 +26,10 @@
     cd Pure-Blur
     ```
 
-3. Run the start script:
+3. Run install library.bat and run.bat
     ```powershell
-    ./start.bat
+    ./install library.bat
+    ./run.bat
     ```
 
 ## Install Web Extension
