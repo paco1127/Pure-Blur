@@ -26,9 +26,10 @@
     cd Pure-Blur
     ```
 
-3. 運行啟動腳本：
+3. 運行install library.bat 和run.bat
     ```powershell
-    ./start.bat
+    ./install library.bat
+    ./run.bat
     ```
 
 ## 安裝網頁擴展
