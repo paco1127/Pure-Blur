@@ -17,7 +17,7 @@ class BlurBlood:
             rainbow_img[:, i] = cv2.cvtColor(np.uint8([[[hue, 255, 255]]]), cv2.COLOR_HSV2BGR).squeeze()
         return rainbow_img
 
-    def blur_blood_image(self, image_path):
+    def blur_blood_image(self, image_path, output_path=None):
         # Load the image
         im0 = cv2.imread(image_path)
 
@@ -53,7 +53,11 @@ class BlurBlood:
                     # Use the mask to combine the original and rainbow-blurred image
                     im0 = np.where(mask[:,:,None].astype(bool), rainbow_obj, im0)
 
-        return im0
+        # Save the image
+        if output_path:
+            cv2.imwrite(output_path, im0)
+            return True
+        return False
 
 
 

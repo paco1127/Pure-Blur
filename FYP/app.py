@@ -439,11 +439,11 @@ def censor_blood():
     output_path = os.path.join(app.config['CENSORED_FOLDER'], 'blurred_' + unique_filename)
 
     blur_blood = BlurBlood()
-    results = blur_blood.blur_blood_image(temp_path)
-    if results.any() == False:
+    results = blur_blood.blur_blood_image(temp_path, output_path)
+
+    if results == False:
         return "No blood detected in the image." 
-    else :
-        cv2.imwrite(output_path, results)
+
         
     append_to_csv('userFiles.csv', [unique_filename, 'blurred_' + unique_filename ,session['username'], 'photo', 'blood'])
 
@@ -534,7 +534,7 @@ def censor_image4app():
     
 
     # Perform censorship using the nude_detector.censor function
-    output_path = os.path.join(app.config['UPLOAD_FOLDER'], 'censor_' + unique_filename)
+    output_path = os.path.join(app.config['CENSORED_FOLDER'], 'censor_' + unique_filename)
 
     nude_detector = NudeDetector()
     classes = []
@@ -666,8 +666,10 @@ def censor_blood4app():
     output_path = os.path.join(app.config['CENSORED_FOLDER'], 'blurred_' + unique_filename)
 
     blur_blood = BlurBlood()
-    blurred_image = blur_blood.blur_blood_image(temp_path)
-    cv2.imwrite(output_path, blurred_image)
+    results = blur_blood.blur_blood_image(temp_path, output_path)
+
+    if results == False:
+        return "No blood detected in the image." 
 
 
 
@@ -693,7 +695,7 @@ def get_ipv4_addresses():
 
 @click.command()
 @click.option('--mode', type=click.Choice(['1', '2']), prompt='Select mode (1 for dev or 2 for prod): ')
-def run(mode):
+def runser(mode):
     if mode == '1':
         # Running in development mode
         app.run(host='0.0.0.0', port=5000)
@@ -711,4 +713,4 @@ def run(mode):
         serve(app, host='0.0.0.0', port=5000, threads=2, url_scheme='https')
 
 if __name__ == '__main__':
-    run()
+    runser()

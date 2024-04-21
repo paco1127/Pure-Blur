@@ -1,1 +1,2 @@
-python FYP/app.py
+cd FYP
+python app.py
